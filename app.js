@@ -4,6 +4,7 @@ const cookieparser = require('cookie-parser');
 const helmet = require('helmet');
 const path = require('path');
 const ratelimiter = require('express-rate-limit');
+const compression = require('compression');
 
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
@@ -114,6 +115,8 @@ app.use(
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
+app.use(compression());
 
 app.use((req, res, next) => {
   // console.log(req.cookies, '🖐 cookies');
