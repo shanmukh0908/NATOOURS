@@ -3,20 +3,6 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
 
-const DB = process.env.DATABASE.replace(
-  '<db_password>',
-  process.env.MONGO_PASSWORD,
-);
-
-mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  })
-  .then(() => console.log('connection successful'))
-  .catch(() => console.log('some error in connection'));
-
 const tourSchema = new mongoose.Schema(
   {
     name: {
