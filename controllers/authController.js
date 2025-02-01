@@ -18,7 +18,7 @@ const createsendtoken = (uid, statuscode, res, data = null) => {
   const cookieOptions = {
     expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
     httpOnly: true,
-    domain: '127.0.0.1',
+    // domain: '127.0.0.1',
   };
   if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
 
